@@ -9,6 +9,13 @@ jobs:
         uses: actions/checkout@v2
       - name: JMeter
         run: |
-            wget http://www.gtlib.gatech.edu/pub/apache/jmeter/binaries/apache-jmeter-5.3.tgz
+            wget https://downloads.apache.org//jmeter/binaries/apache-jmeter-5.3.tgz
             tar xf apache-jmeter-5.3.tgz
             ls -la
+            sudo apt-get update
+            sudo apt install openjdk-8-jdk
+            ./apache-jmeter-5.3/bin/jmeter.sh -n -t mytest.jmx -l testresults.jtl
+            while [ : ]
+            do
+              cat testresults.jtl
+            done
