@@ -14,7 +14,7 @@ jobs:
             ls -la
             sudo apt-get update
             sudo apt install openjdk-8-jdk
-            ./apache-jmeter-5.3/bin/jmeter.sh  -n mytest.jmx -l testresults.jtl
+            ./apache-jmeter-5.3/bin/jmeter.sh -n -t mytest.jmx -l testresults.jtl
             while [ : ]
             do
               cat testresults.jtl
